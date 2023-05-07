@@ -17,16 +17,7 @@ const DittoCanvasInner: React.FC<DittoCanvasProps> = ({ children }) => {
   const canvasRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div
-      className="ditto-canvas"
-      ref={canvasRef}
-      {...targetProps}
-      style={{
-        width: "100%",
-        height: "100%",
-        userSelect: "none",
-      }}
-    >
+    <div className="ditto-canvas" ref={canvasRef} {...targetProps}>
       <HandlePortal />
       <DittoItem>DittoCanvas</DittoItem>
     </div>
