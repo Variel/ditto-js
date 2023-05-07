@@ -1,6 +1,6 @@
 import { ReactNode, useRef } from "react";
 import { MouseContextProvider } from "../MouseContext/provider";
-import { useMouseMovement } from "../MouseContext/hooks";
+import { useMouseMovementTarget } from "../MouseContext/hooks";
 import { DittoItem } from "../DittoItem";
 import { HandleContextProvider } from "../HandleContext/provider";
 import { HandlePortal } from "../Handle/HandlePortal";
@@ -12,7 +12,7 @@ interface DittoCanvasProps {
 }
 
 const DittoCanvasInner: React.FC<DittoCanvasProps> = ({ children }) => {
-  const { targetProps } = useMouseMovement();
+  const { targetProps } = useMouseMovementTarget();
 
   const canvasRef = useRef<HTMLDivElement>(null);
 

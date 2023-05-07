@@ -1,28 +1,28 @@
 import { MouseEventHandler, useContext } from "react";
 import { MouseContext } from "./context";
 
-export const useMouseMovement = () => {
+export const useMouseMovementTarget = () => {
   const context = useContext(MouseContext);
 
   if (!context)
     throw new Error("useMouseMovement must be used within a MouseProvider");
 
-  const { setPosition, setIsDown } = context;
+  const { setPosition, setDownPosition } = context;
 
   const handleMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
     setPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetX });
   };
 
   const handleMouseDown: MouseEventHandler<HTMLDivElement> = (e) => {
-    setIsDown(true);
+    setDownPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetX });
   };
 
   const handleMouseUp: MouseEventHandler<HTMLDivElement> = (e) => {
-    setIsDown(false);
+    setDownPosition(undefined);
   };
 
   const handleMouseLeave: MouseEventHandler<HTMLDivElement> = (e) => {
-    setIsDown(false);
+    setDownPosition(undefined);
   };
 
   return {

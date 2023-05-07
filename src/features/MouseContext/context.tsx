@@ -1,11 +1,15 @@
 import React from "react";
 
-export interface MouseContextType {
+export interface Position {
   x: number;
   y: number;
-  isDown: boolean;
-  setPosition: (position: { x: number; y: number }) => void,
-  setIsDown: (isDown: boolean) => void,
+}
+
+export interface MouseContextType {
+  position: Position;
+  downPosition: Position | undefined;
+  setPosition: (position: Position) => void;
+  setDownPosition: (position: Position | undefined) => void;
 }
 
 export const MouseContext = React.createContext<MouseContextType | null>(null);
