@@ -1,8 +1,85 @@
 .ditto__handle {
   position: absolute;
+  background-color: cornflowerblue;
+
+  --handle-size: 10px;
+}
+
+.ditto__handle__top,
+.ditto__handle__bottom,
+.ditto__handle__right,
+.ditto__handle__left,
+.ditto__handle__top-left,
+.ditto__handle__top-right,
+.ditto__handle__bottom-left,
+.ditto__handle__bottom-right,
+.ditto__handle__rotate {
+  position: absolute;
+  width: var(--handle-size);
+  height: var(--handle-size);
+  border: 1px solid red;
+  background: #ff00007a
+}
+
+.ditto__handle__top {
+  top: calc(-1 * var(--handle-size) / 2);
+  left: calc(50% - var(--handle-size) / 2);
+  cursor: ns-resize
+}
+
+.ditto__handle__bottom {
+  bottom: calc(-1 * var(--handle-size) / 2);
+  left: calc(50% - var(--handle-size) / 2);
+  cursor: ns-resize
+}
+
+.ditto__handle__right {
+  right: calc(-1 * var(--handle-size) / 2);
+  top: calc(50% - var(--handle-size) / 2);
+  cursor: ew-resize;
+}
+
+.ditto__handle__left {
+  left: calc(-1 * var(--handle-size) / 2);
+  top: calc(50% - var(--handle-size) / 2);
+  cursor: ew-resize;
+}
+
+.ditto__handle__top-left {
+  top: calc(-1 * var(--handle-size) / 2);
+  left: calc(-1 * var(--handle-size) / 2);
+  cursor: nwse-resize;
+}
+
+.ditto__handle__top-right {
+  top: calc(-1 * var(--handle-size) / 2);
+  right: calc(-1 * var(--handle-size) / 2);
+  cursor: nesw-resize;
+}
+
+.ditto__handle__bottom-left {
+  bottom: calc(-1 * var(--handle-size) / 2);
+  left: calc(-1 * var(--handle-size) / 2);
+  cursor: nesw-resize;
+}
+
+.ditto__handle__bottom-right {
+  bottom: calc(-1 * var(--handle-size) / 2);
+  right: calc(-1 * var(--handle-size) / 2);
+  cursor: nwse-resize;
+}
+
+.ditto__handle__rotate {
+  top: calc(-3 * var(--handle-size));
+  left: calc(50% - var(--handle-size) / 2);
+  border-radius: calc(var(--handle-size));
+};
+
+.ditto__handle__body {
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: cornflowerblue;
+  right: 0;
+  bottom: 0;
+  background: #dddd007a;
 }

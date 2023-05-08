@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { MouseContext, MouseContextType, Position } from "./context";
+import { Handle, MouseContext, MouseContextType, Position } from "./context";
 
 export const MouseContextProvider = ({
   children,
@@ -10,20 +10,23 @@ export const MouseContextProvider = ({
   const [downPosition, setDownPosition] = useState<Position | undefined>(
     undefined
   );
+  const [pressedHandle, setPressedHandle] = useState<Handle | undefined>(undefined);
 
   const value = useMemo<MouseContextType>(
     () => ({
       position,
       downPosition,
+      pressedHandle,
       setPosition,
       setDownPosition,
+      setPressedHandle
     }),
-    [position, downPosition, setPosition, setDownPosition]
+    [position, downPosition, pressedHandle, setPosition, setDownPosition, setPressedHandle]
   );
 
   // FIXME: debugging purposes only
   useEffect(() => {
-    console.log("features\\MouseContext\\provider.tsx", value);
+    console.log(value);
   }, [value]);
 
   return (

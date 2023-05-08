@@ -7,7 +7,7 @@ export const useMouseMovementTarget = () => {
   if (!context)
     throw new Error("useMouseMovement must be used within a MouseProvider");
 
-  const { setPosition, setDownPosition } = context;
+  const { setPosition, setDownPosition, setPressedHandle } = context;
 
   const handleMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
     setPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetX });
@@ -19,10 +19,12 @@ export const useMouseMovementTarget = () => {
 
   const handleMouseUp: MouseEventHandler<HTMLDivElement> = (e) => {
     setDownPosition(undefined);
+    setPressedHandle(undefined);
   };
 
   const handleMouseLeave: MouseEventHandler<HTMLDivElement> = (e) => {
     setDownPosition(undefined);
+    setPressedHandle(undefined);
   };
 
   return {
@@ -34,3 +36,25 @@ export const useMouseMovementTarget = () => {
     },
   };
 };
+
+export const usePressHandle = () => {
+  const context = useContext(MouseContext);
+
+  if (!context)
+    throw new Error("useHandleSelector must be used within a MouseProvider");
+
+  const { setPressedHandle } = context;
+
+  return setPressedHandle;
+}
+
+export const useMouseState = () => {
+  const context = useContext(MouseContext);
+
+  if (!context)
+    throw new Error("useMouseState must be used within a MouseProvider");
+
+  const { position, downPosition, pressedHandle } = context;
+
+  return { position, downPosition, pressedHandle };
+}
