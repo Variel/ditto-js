@@ -8,12 +8,11 @@ export interface Position {
 export type Handle = 'top' | 'topLeft' | 'topRight' | 'bottom' | 'bottomLeft' | 'bottomRight' | 'left' | 'right' | 'rotate' | 'body';
 
 export interface MouseContextType {
-  position: Position;
-  downPosition: Position | undefined;
-  pressedHandle: Handle | undefined;
-  setPosition: (position: Position) => void;
-  setDownPosition: (position: Position | undefined) => void;
-  setPressedHandle: (handle: Handle | undefined) => void;
+  positionRef: React.MutableRefObject<Position | undefined>;
+  prevPositionRef: React.MutableRefObject<Position | undefined>;
+  positionDiffRef: React.MutableRefObject<Position | undefined>;
+  pressedHandleRef: React.MutableRefObject<Handle | undefined>;
+  updatePosition: () => void;
 }
 
 export const MouseContext = React.createContext<MouseContextType | null>(null);

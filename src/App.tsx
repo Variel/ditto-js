@@ -12,13 +12,107 @@ function App() {
     <>
       <DittoCanvas>
         <DittoItem defaultTransform={{
-          width: 100,
-          height: 100,
+          width: 220,
+          height: 32,
           x: 100,
           y: 100,
           rotation: 0,
           scale: 1,
-        }}>DittoCanvas</DittoItem>
+        }}
+        minSize={{
+          width: 220,
+          height: 32
+        }}>
+          <div style={{display: 'flex', width: "100%", height: "100%", alignItems: "stretch", justifyContent: "stretch"}}>
+            <input type="text" style={{flexGrow: 1, minWidth: "none"}} />
+            <button type="button">확인</button>
+          </div>
+        </DittoItem>
+        <DittoItem defaultTransform={{
+          width: 220,
+          height: 32,
+          x: 100,
+          y: 100,
+          rotation: 0,
+          scale: 1,
+        }}
+        minSize={{
+          width: 220,
+          height: 32
+        }}>
+          <div style={{display: 'flex', width: "100%", height: "100%", alignItems: "stretch", justifyContent: "stretch"}}>
+            <input type="text" style={{flexGrow: 1, minWidth: "none"}} />
+            <button type="button">확인</button>
+          </div>
+        </DittoItem>
+        <DittoItem defaultTransform={{
+          width: 220,
+          height: 32,
+          x: 100,
+          y: 100,
+          rotation: 0,
+          scale: 1,
+        }}
+        minSize={{
+          width: 220,
+          height: 32
+        }}>
+          <div style={{display: 'flex', width: "100%", height: "100%", alignItems: "stretch", justifyContent: "stretch"}}>
+            <input type="text" style={{flexGrow: 1, minWidth: "none"}} />
+            <button type="button">확인</button>
+          </div>
+        </DittoItem>
+        <DittoItem defaultTransform={{
+          width: 220,
+          height: 32,
+          x: 100,
+          y: 100,
+          rotation: 0,
+          scale: 1,
+        }}
+        minSize={{
+          width: 220,
+          height: 32
+        }}>
+          <div style={{display: 'flex', width: "100%", height: "100%", alignItems: "stretch", justifyContent: "stretch"}}>
+            <input type="text" style={{flexGrow: 1, minWidth: "none"}} />
+            <button type="button">확인</button>
+          </div>
+        </DittoItem>
+        <DittoItem defaultTransform={{
+          width: 220,
+          height: 32,
+          x: 100,
+          y: 100,
+          rotation: 0,
+          scale: 1,
+        }}
+        minSize={{
+          width: 220,
+          height: 32
+        }}>
+          <div style={{display: 'flex', width: "100%", height: "100%", alignItems: "stretch", justifyContent: "stretch"}}>
+            <input type="text" style={{flexGrow: 1, minWidth: "none"}} />
+            <button type="button">확인</button>
+          </div>
+        </DittoItem>
+        <DittoItem defaultTransform={{
+          width: 220,
+          height: 32,
+          x: 100,
+          y: 100,
+          rotation: 0,
+          scale: 1,
+        }}
+        minSize={{
+          width: 220,
+          height: 32
+        }}>
+          <div style={{display: 'flex', width: "100%", height: "100%", alignItems: "stretch", justifyContent: "stretch"}}>
+            <input type="text" style={{flexGrow: 1, minWidth: "none"}} />
+            <button type="button">확인</button>
+          </div>
+        </DittoItem>
       </DittoCanvas>
     </>
   );

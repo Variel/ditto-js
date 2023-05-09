@@ -1,19 +1,32 @@
 import { ReactNode, useRef } from "react";
 import { MouseContextProvider } from "../MouseContext/provider";
-import { useMouseMovementTarget } from "../MouseContext/hooks";
-import { DittoItem } from "../DittoItem";
+import { useMouseMovementTarget, useMouseState, usePressedHandle } from "../MouseContext/hooks";
 import { HandleContextProvider } from "../HandleContext/provider";
 import { HandlePortal } from "../Handle/HandlePortal";
 
 import "./index.scss";
 import { DittoItemsContextProvider } from "../DittoItemsContext/provider";
+import { useDittoItemManipulate, useDittoSelectItem } from "../DittoItemsContext/hooks";
 
 interface DittoCanvasProps {
   children?: ReactNode;
 }
 
 const DittoCanvasInner: React.FC<DittoCanvasProps> = ({ children }) => {
-  const { targetProps } = useMouseMovementTarget();
+  const pressedHandle = usePressedHandle();
+  const selectItem = useDittoSelectItem();
+  const onMouseMove = useDittoItemManipulate();
+
+  const onMouseDownForDeselect = () => {
+    if (pressedHandle.current) return;
+
+    selectItem(undefined);
+  }
+
+  const { targetProps } = useMouseMovementTarget({
+    onMouseDown: onMouseDownForDeselect,
+    onMouseMove,
+  });
 
   const canvasRef = useRef<HTMLDivElement>(null);
 

@@ -1,6 +1,5 @@
 .ditto__handle {
   position: absolute;
-  background-color: cornflowerblue;
 
   --handle-size: 10px;
 }
@@ -18,7 +17,8 @@
   width: var(--handle-size);
   height: var(--handle-size);
   border: 1px solid red;
-  background: #ff00007a
+  background: #ff00007a;
+  pointer-events: all;
 }
 
 .ditto__handle__top {
@@ -73,6 +73,7 @@
   top: calc(-3 * var(--handle-size));
   left: calc(50% - var(--handle-size) / 2);
   border-radius: calc(var(--handle-size));
+  cursor: crosshair;
 };
 
 .ditto__handle__body {
@@ -81,5 +82,5 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #dddd007a;
+  pointer-events: all;
 }

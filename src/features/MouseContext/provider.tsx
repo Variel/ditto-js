@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Handle, MouseContext, MouseContextType, Position } from "./context";
 
 export const MouseContextProvider = ({
@@ -6,27 +6,26 @@ export const MouseContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [downPosition, setDownPosition] = useState<Position | undefined>(
-    undefined
-  );
-  const [pressedHandle, setPressedHandle] = useState<Handle | undefined>(undefined);
+  const positionRef = useRef<Position | undefined>(undefined);
+  const prevPositionRef = useRef<Position | undefined>(undefined);
+  const positionDiffRef = useRef<Position | undefined>(undefined);
+  const pressedHandleRef = useRef<Handle | undefined>(undefined);
+  const [, _updatePosition] = useState({});
 
   const value = useMemo<MouseContextType>(
     () => ({
-      position,
-      downPosition,
-      pressedHandle,
-      setPosition,
-      setDownPosition,
-      setPressedHandle
+      positionRef,
+      prevPositionRef,
+      positionDiffRef,
+      pressedHandleRef,
+      updatePosition: () => _updatePosition({}),
     }),
-    [position, downPosition, pressedHandle, setPosition, setDownPosition, setPressedHandle]
+    [prevPositionRef, positionDiffRef, pressedHandleRef, _updatePosition]
   );
 
   // FIXME: debugging purposes only
   useEffect(() => {
-    console.log(value);
+    console.log(value.positionDiffRef.current);
   }, [value]);
 
   return (
